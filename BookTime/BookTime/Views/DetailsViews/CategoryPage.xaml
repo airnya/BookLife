@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookTime.Views.DetailsViews.CategoryPage">
+
+
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem Text="Add" Icon="search.png" Clicked="SearchItem_Clicked" />-->
+        <ToolbarItem Text="Add" Icon="plus.png" Clicked="AddItem_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ListItemTextStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#FF6681"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+            <Style x:Key="ListItemDetailTextStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="LightGray"/>
+                <Setter Property="FontSize" Value="15"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="10" BackgroundColor="WhiteSmoke">
+        <ListView x:Name="CategoryListHome" 
+                 VerticalOptions="FillAndExpand"
+                 HasUnevenRows="true"
+                 ItemSelected="OnItemSelected"
+                 RefreshCommand="{Binding LoadCategoriesCommand}"
+                 IsPullToRefreshEnabled="true"
+                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                 CachingStrategy="RecycleElement"
+                 SeparatorVisibility="None">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="White" Padding="5, 1" Margin="5">
+                            <Grid  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                <!--RowSpacing="1" ColumnSpacing="1"-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="80" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Grid.RowSpan="2" Source="{Binding CategoryImagePath}" Margin="10"/>
+
+                                <StackLayout Grid.Column="1" VerticalOptions="CenterAndExpand">
+                                    <Label Text="{Binding CategoryName}" 
+                                            LineBreakMode="NoWrap" />
+                                </StackLayout>
+                                <ImageButton Source="more.png"  Grid.Column="2" BackgroundColor="White" 
+                                             HorizontalOptions="EndAndExpand" HeightRequest="40"
+                                             CommandParameter="{Binding .}" Pressed="OnDeleteClickedAsync"/>
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

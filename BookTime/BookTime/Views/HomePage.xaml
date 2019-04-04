@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookTime.Views.HomePage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Icon="scan_barcode.png" Clicked="ScanItem_ClickedAsync" />
+        <ToolbarItem Text="Add" Icon="search.png" Clicked="SearchItem_Clicked" />
+        <ToolbarItem Text="Add" Icon="plus.png" Clicked="AddItem_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ListItemTextStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#FF6681"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+            <Style x:Key="ListItemDetailTextStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="LightGray"/>
+                <Setter Property="FontSize" Value="15"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="5" BackgroundColor="WhiteSmoke">
+        <ListView x:Name="BookListHome" 
+                VerticalOptions="FillAndExpand"
+                 HasUnevenRows="true"
+                 RefreshCommand="{Binding LoadCategoriesCommand}"
+                 IsPullToRefreshEnabled="true"
+                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                 CachingStrategy="RecycleElement"
+                 ItemSelected="OnViewListItemSelected"
+                 SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="White" Padding="2,1" Margin="5">
+                            <Grid  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                <!--RowSpacing="1" ColumnSpacing="1"-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="100" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2.5*" />
+                                    <ColumnDefinition Width="6*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0" Grid.RowSpan="2" Source="{Binding BookImagePath}" Margin="3" HeightRequest="100" WidthRequest="100"/>
+
+                                <StackLayout Grid.Column="1" Grid.RowSpan="2" VerticalOptions="CenterAndExpand">
+                                    <Label Text="{Binding BookTitle}" FontSize="16"  TextColor="#FF6681" HorizontalTextAlignment="Start"
+                                            LineBreakMode="TailTruncation" />
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Автор" FontSize="13"/>
+                                        <Label Text="{Binding BookAuthor}" FontSize="13"
+                                                LineBreakMode="NoWrap"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <ImageButton Source="more.png"  Grid.Column="2" Grid.RowSpan="2" BackgroundColor="White" HorizontalOptions="EndAndExpand" HeightRequest="40" />
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

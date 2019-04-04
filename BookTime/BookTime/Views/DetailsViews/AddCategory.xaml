@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookTime.Views.DetailsViews.AddCategory">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" Padding="10">
+        <StackLayout 
+					VerticalOptions="StartAndExpand" HorizontalOptions="Center"
+					Padding="20" Spacing="10" BackgroundColor="White" Opacity="0.8">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Category Name" Grid.Row="0" Grid.Column="0"/>
+                <Entry x:Name="category_name" Text="{Binding CategoryName}" Placeholder="Category Name" Keyboard="Text" Grid.Row="0" Grid.Column="1"/>
+                <Label Text="ImagePath" Grid.Row="1" Grid.Column="0"/>
+                <Entry x:Name="img_url" Text="{Binding CategoryImagePath}" Placeholder="Img url"  Grid.Row="1" Grid.Column="1"/>
+            </Grid>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="SAVE" Clicked="adddata"  />
+                <Button Text="Cancel" Clicked="cancel" />
+                <Button Text="REMOVE" Clicked="removecategory" x:Name="removebtn" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

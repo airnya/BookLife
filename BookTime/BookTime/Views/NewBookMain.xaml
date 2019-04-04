@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:views="clr-namespace:BookTime.Views.DetailsViews"
+            x:Class="BookTime.Views.NewBookMain"            
+            BackgroundColor="#FF6681"
+            Title="ДОБАВЛЕНИЕ КНИГИ">
+    <TabbedPage.Children>
+        <NavigationPage Title="Поиск" Icon="">
+            <x:Arguments>
+                <views:NewBookParse />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Редактирование">
+            <!--<NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android" Value="icon.png"/>
+                </OnPlatform>
+            </NavigationPage.Icon> -->
+            <x:Arguments>
+                <views:NewBookEdit />
+            </x:Arguments>
+        </NavigationPage>
+
+        <NavigationPage Title="Добавлено!">
+            <x:Arguments>
+                <views:NewBookAdded />
+            </x:Arguments>
+        </NavigationPage>
+
+    </TabbedPage.Children>
+</TabbedPage>
