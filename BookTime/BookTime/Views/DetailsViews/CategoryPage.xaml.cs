@@ -85,11 +85,11 @@ namespace BookTime.Views.DetailsViews
 
         private void OnDeleteClickedAsync(object sender, EventArgs e)
         {
-            var itemsender = (ImageButton)sender;
-            var item = (Category)itemsender?.CommandParameter;
-            // it would be much cleaner to keep a ref to your VM in your page
-            // rather than continually casting it from BindingContext
-            app.Database.DeleteCategory(item.Id);
+            //var itemsender = (ImageButton)sender;
+            //var item = (Category)itemsender?.CommandParameter;
+            //// it would be much cleaner to keep a ref to your VM in your page
+            //// rather than continually casting it from BindingContext
+            //app.Database.DeleteCategory(item.Id);
         }
     }
 }

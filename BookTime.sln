@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTime.Android", "BookTime\BookTime.Android\BookTime.Android.csproj", "{7C187FE9-3ADD-4954-A893-F52F45B64C5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTime", "BookTime\BookTime\BookTime.csproj", "{9D74AFF5-DA43-441E-81F0-CFD39925C6C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookTime", "BookTime\BookTime\BookTime.csproj", "{9D74AFF5-DA43-441E-81F0-CFD39925C6C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

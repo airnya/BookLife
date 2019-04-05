@@ -58,7 +58,7 @@
                                                 LineBreakMode="NoWrap"/>
                                     </StackLayout>
                                 </StackLayout>
-                                <ImageButton Source="more.png"  Grid.Column="2" Grid.RowSpan="2" BackgroundColor="White" HorizontalOptions="EndAndExpand" HeightRequest="40" />
+                                <!--<ImageButton Source="more.png"  Grid.Column="2" Grid.RowSpan="2" BackgroundColor="White" HorizontalOptions="EndAndExpand" HeightRequest="40" />-->
                             </Grid>
                         </StackLayout>
                     </ViewCell>

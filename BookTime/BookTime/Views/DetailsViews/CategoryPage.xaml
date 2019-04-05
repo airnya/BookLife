@@ -53,9 +53,9 @@
                                     <Label Text="{Binding CategoryName}" 
                                             LineBreakMode="NoWrap" />
                                 </StackLayout>
-                                <ImageButton Source="more.png"  Grid.Column="2" BackgroundColor="White" 
+                                <!--<ImageButton Source="more.png"  Grid.Column="2" BackgroundColor="White" 
                                              HorizontalOptions="EndAndExpand" HeightRequest="40"
-                                             CommandParameter="{Binding .}" Pressed="OnDeleteClickedAsync"/>
+                                             CommandParameter="{Binding .}" Pressed="OnDeleteClickedAsync"/>-->
                             </Grid>
                         </StackLayout>
                     </ViewCell>
